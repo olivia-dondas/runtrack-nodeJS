@@ -1,8 +1,7 @@
 const fs = require("fs");
-fs.readFile("./data.txt", "utf8", (err, data) => {
-  if (err) {
-    console.error("Error reading file:", err);
-    return;
-  }
+try {
+  const data = fs.readFileSync("./data.txt", "utf8");
   console.log("Contenu du fichier data.txt:", data);
-});
+} catch (err) {
+  console.error("Error reading file:", err);
+}
